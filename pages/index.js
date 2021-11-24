@@ -4,6 +4,7 @@ import SinglePost from "../Components/SinglePost/SinglePost";
 import { handleGetAllPosts } from "../Redux/Actions/Posts";
 import { useEffect } from "react";
 import router from "next/router";
+import Navbar from "../Components/Navbar/Navbar";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ const Home = () => {
 
   return (
     <>
+      <Navbar />
       {Object.values(posts)
         .sort((a, b) => b.timestamp - a.timestamp)
         .map((post) => (

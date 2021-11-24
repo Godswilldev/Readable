@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const axiosInstance = axios.create({
-  baseURL: "https://readabl-e.herokuapp.com",
+  baseURL: "http://localhost:5000",
   headers: {
     Authorization: "GregData",
     "Access-Control-Allow-Credentials": true,
