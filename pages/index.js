@@ -3,7 +3,6 @@ import styled from "styled-components";
 import SinglePost from "../Components/SinglePost/SinglePost";
 import { handleGetAllPosts } from "../Redux/Actions/Posts";
 import { useEffect } from "react";
-import Link from "next/link";
 import router from "next/router";
 
 const Home = () => {
