@@ -5,7 +5,6 @@ import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "../Utils/Theme";
 
 function MyApp({ Component, pageProps }) {
-  console.log(store.getState());
   return (
     <Provider store={store}>
       <ThemeProvider

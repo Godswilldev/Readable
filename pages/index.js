@@ -1,14 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import SinglePost from "../Components/SinglePost/SinglePost";
-import { toggleTheme } from "../Redux/Actions/Theme";
 import { handleGetAllPosts } from "../Redux/Actions/Posts";
 import { useEffect } from "react";
-import Button1 from "./../Components/Buttons/Button1";
+import Link from "next/link";
+import router from "next/router";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { darkMode } = useSelector(({ ThemeReducer }) => ThemeReducer);
 
   useEffect(() => {
     dispatch(handleGetAllPosts());
@@ -18,13 +17,10 @@ const Home = () => {
 
   return (
     <>
-      <span onClick={() => dispatch(toggleTheme(!darkMode))}>
-        <Button1 title="Toggle">Toggle</Button1>
-      </span>
       {Object.values(posts)
         .sort((a, b) => b.timestamp - a.timestamp)
         .map((post) => (
-          <Post key={post?.id}>
+          <Post onClick={() => router.push(`/posts/${post.id}`)} key={post?.id}>
             <SinglePost post={post} />
           </Post>
         ))}
