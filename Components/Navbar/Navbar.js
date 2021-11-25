@@ -8,7 +8,6 @@ import { useState } from "react";
 import { body1, body2, h3 } from "./../../Utils/Typography";
 import { useDispatch } from "react-redux";
 import { sortBy } from "../../Redux/Actions/Posts";
-import { device } from "./../../Utils/MediaQueries";
 
 const Navbar = ({ post }) => {
   const [sortMethod, setSortMethod] = useState("Most Upvotes");
@@ -16,6 +15,11 @@ const Navbar = ({ post }) => {
   const dispatch = useDispatch();
 
   const [showSortMethod, setShowSortMethod] = useState(false);
+
+  const handleSort = (method) => {
+    setSortMethod(method);
+    dispatch(sortBy(method));
+  };
 
   return (
     <Navigation>
@@ -25,43 +29,19 @@ const Navbar = ({ post }) => {
       </div>
 
       <p className="sortBy" onClick={() => setShowSortMethod(!showSortMethod)}>
-        Sort By: {sortMethod} {"  "} <Image src={arrowUp} alt="Arrow up" />
+        Sort By: {sortMethod} <Image src={arrowUp} alt="Arrow up" />
       </p>
 
       <div onClick={() => setShowSortMethod(!showSortMethod)}>
         {showSortMethod && (
           <ul className="sortMethod">
-            <li
-              onClick={() => {
-                setSortMethod("Most Upvotes"), dispatch(sortBy(sortMethod));
-              }}
-            >
-              Most Upvotes
-            </li>
+            <li onClick={() => handleSort("Most Upvotes")}>Most Upvotes</li>
 
-            <li
-              onClick={() => {
-                setSortMethod("Least Upvotes"), dispatch(sortBy(sortMethod));
-              }}
-            >
-              Least Upvotes
-            </li>
+            <li onClick={() => handleSort("Least Upvotes")}>Least Upvotes</li>
 
-            <li
-              onClick={() => {
-                setSortMethod("Most Comments"), dispatch(sortBy(sortMethod));
-              }}
-            >
-              Most Comments
-            </li>
+            <li onClick={() => handleSort("Most Comments")}>Most Comments</li>
 
-            <li
-              onClick={() => {
-                setSortMethod("Least Comments"), dispatch(sortBy(sortMethod));
-              }}
-            >
-              Least Comments
-            </li>
+            <li onClick={() => handleSort("Least Comments")}>Least Comments</li>
           </ul>
         )}
       </div>
