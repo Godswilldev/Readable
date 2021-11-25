@@ -103,9 +103,9 @@ const Navigation = styled.div`
     border-radius: 1rem;
     width: 25.5rem;
     height: 19.2rem;
-    position: relative;
-    top: 20rem;
-    /* left: 60; */
+    position: absolute;
+    top: 6rem;
+    left: 50rem;
     z-index: 2;
     box-shadow: 1rem 1rem 1rem 0rem rgba(0, 0, 0, 0.2);
     display: flex;
