@@ -8,6 +8,7 @@ import { useState } from "react";
 import { body1, body2, h3 } from "./../../Utils/Typography";
 import { useDispatch } from "react-redux";
 import { sortBy } from "../../Redux/Actions/Posts";
+import { device } from "../../Utils/MediaQueries";
 
 const Navbar = ({ post }) => {
   const [sortMethod, setSortMethod] = useState("Most Upvotes");
@@ -67,6 +68,12 @@ const Navigation = styled.div`
   justify-content: space-between;
   padding: 0 2rem;
   box-shadow: 0.5rem 0.5rem 0.5rem 0rem rgba(0, 0, 0, 0.2);
+  @media ${device.tablet} {
+    width: 95%;
+  }
+  @media ${device.mobileL} {
+    width: 90%;
+  }
 
   .suggestions {
     display: flex;

@@ -95,7 +95,6 @@ const Side = styled.div`
     @media ${device.tablet} {
       width: 22.3rem;
       height: 17.8rem;
-      align-items: center;
       margin-bottom: 0;
     }
   }
@@ -114,7 +113,6 @@ const Side = styled.div`
     @media ${device.tablet} {
       width: 22.3rem;
       height: 17.8rem;
-      /* align-items: center; */
       margin-bottom: 0;
     }
   }
