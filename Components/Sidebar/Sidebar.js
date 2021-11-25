@@ -55,7 +55,7 @@ const Side = styled.div`
     margin-bottom: 3rem;
     /* background-image: linear-gradient(to top right, red, blue); */
     background-image: radial-gradient(
-      circle farthest-side at 100% 50%,
+      circle farthest-side at 95% 50%,
       #e84d70,
       #a337f6,
       #28a7ed
