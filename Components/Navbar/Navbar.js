@@ -45,6 +45,7 @@ const Navbar = ({ post }) => {
           </ul>
         )}
       </div>
+
       <span className="nav__button">
         <Button1 title="Add Feedback" />
       </span>
@@ -65,6 +66,7 @@ const Navigation = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 0 2rem;
+  box-shadow: 0.5rem 0.5rem 0.5rem 0rem rgba(0, 0, 0, 0.2);
 
   .suggestions {
     display: flex;
@@ -74,10 +76,12 @@ const Navigation = styled.div`
       ${h3}
     }
   }
+
   .sortBy {
     cursor: pointer;
     ${body2}
   }
+
   .sortMethod {
     background-color: ${colors.white};
     color: ${colors.col3};

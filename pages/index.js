@@ -5,6 +5,7 @@ import { handleGetAllPosts } from "../Redux/Actions/Posts";
 import { useEffect, useState } from "react";
 import router from "next/router";
 import Navbar from "../Components/Navbar/Navbar";
+import Sidebar from "../Components/Sidebar/Sidebar";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -16,21 +17,53 @@ const Home = () => {
   const posts = useSelector(({ postsReducer }) => postsReducer);
 
   return (
-    <>
-      <Navbar
-        post={posts}
-      />
+    <Index>
+      <div>
+        <div className="sidebar">
+          <Sidebar />
+        </div>
 
-      {Object.values(posts).map((post) => (
-        <Post onClick={() => router.push(`/posts/${post.id}`)} key={post?.id}>
-          <SinglePost post={post} />
-        </Post>
-      ))}
-    </>
+        <div className="posts">
+          <div className="navbar">
+            <Navbar post={posts} />
+          </div>
+
+          <div className="post">
+            {Object.values(posts).map((post) => (
+              <Post
+                onClick={() => router.push(`/posts/${post.id}`)}
+                key={post?.id}
+              >
+                <SinglePost post={post} />
+              </Post>
+            ))}
+          </div>
+        </div>
+      </div>
+    </Index>
   );
 };
 
 export default Home;
+
+const Index = styled.div`
+  max-width: 100vw;
+  position: absolute;
+  top: 10%;
+  left: 10rem;
+
+  .sidebar {
+    width: 25.5rem;
+    height: 52.9rem;
+    position: fixed;
+  }
+
+  .posts {
+    position: absolute;
+    left: 26rem;
+    margin-left: 5rem;
+  }
+`;
 
 const Post = styled.div`
   margin: 1.5rem 0;
