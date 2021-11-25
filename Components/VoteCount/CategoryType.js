@@ -22,7 +22,7 @@ const Category = styled.div`
   height: 3rem;
   padding: 1rem;
   background-color: ${({ darkMode }) => darkMode.categoryType};
-  border-radius: 0.7rem;
+  border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,14 +30,16 @@ const Category = styled.div`
   box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: 0.3s all;
+  color: ${({ dark }) => (dark?.darkMode ? colors.col4 : colors.col2)};
 
   &:hover {
-    background-color: ${({ darkMode }) => darkMode.lightText};
+    background-color: ${colors.col2};
+    color: ${colors.col11};
   }
 
   .voteScore {
     ${body3}
-    color: ${({ dark }) => (dark?.darkMode ? colors.col4 : colors.col2)};
     font-weight: 600;
+    
   }
 `;

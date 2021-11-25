@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import router from "next/router";
 import Navbar from "../Components/Navbar/Navbar";
 import Sidebar from "../Components/Sidebar/Sidebar";
+import { device } from "./../Utils/MediaQueries";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -50,18 +51,31 @@ const Index = styled.div`
   max-width: 100vw;
   position: absolute;
   top: 10%;
-  left: 10rem;
+  left: 12%;
+
+  @media ${device.laptop} {
+    left: 1%;
+  }
 
   .sidebar {
     width: 25.5rem;
     height: 52.9rem;
     position: fixed;
+
+    @media ${device.tablet} {
+      width: 68.9rem;
+      height: 17.8rem;
+    }
   }
 
   .posts {
     position: absolute;
     left: 26rem;
     margin-left: 5rem;
+
+    @media ${device.laptop} {
+      margin-left: 2rem;
+    }
   }
 `;
 
