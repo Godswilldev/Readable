@@ -24,7 +24,7 @@ const Navbar = ({ post }) => {
       </div>
 
       <p className="sortBy" onClick={() => setShowSortMethod(!showSortMethod)}>
-        Sort By: {sortMethod} <Image src={arrowUp} alt="Arrow up" />
+        Sort By: {sortMethod} {"  "} <Image src={arrowUp} alt="Arrow up" />
       </p>
 
       <div onClick={() => setShowSortMethod(!showSortMethod)}>
