@@ -105,7 +105,7 @@ const Navigation = styled.div`
     height: 19.2rem;
     position: absolute;
     top: 6rem;
-    left: 50rem;
+    left: 52rem;
     z-index: 2;
     box-shadow: 1rem 1rem 1rem 0rem rgba(0, 0, 0, 0.2);
     display: flex;
