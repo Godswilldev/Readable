@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import SinglePost from "../Components/SinglePost/SinglePost";
 import { handleGetAllPosts } from "../Redux/Actions/Posts";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import router from "next/router";
 import Navbar from "../Components/Navbar/Navbar";
 
@@ -17,14 +17,15 @@ const Home = () => {
 
   return (
     <>
-      <Navbar />
-      {Object.values(posts)
-        .sort((a, b) => b.timestamp - a.timestamp)
-        .map((post) => (
-          <Post onClick={() => router.push(`/posts/${post.id}`)} key={post?.id}>
-            <SinglePost post={post} />
-          </Post>
-        ))}
+      <Navbar
+        post={posts}
+      />
+
+      {Object.values(posts).map((post) => (
+        <Post onClick={() => router.push(`/posts/${post.id}`)} key={post?.id}>
+          <SinglePost post={post} />
+        </Post>
+      ))}
     </>
   );
 };

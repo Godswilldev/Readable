@@ -1,4 +1,4 @@
-import { GET_ALL_POSTS } from "./../Actions/Posts";
+import { GET_ALL_POSTS, SORT_BY } from "./../Actions/Posts";
 
 const initialState = {};
 
@@ -9,6 +9,28 @@ const postsReducer = (state = initialState, action) => {
         ...state,
         ...action.payload,
       };
+
+    case SORT_BY:
+      switch (action.payload) {
+        case "Most Upvotes":
+          return Object.values(state).sort((a, b) => b.voteScore - a.voteScore);
+
+        case "Least Upvotes":
+          return Object.values(state).sort((a, b) => a.voteScore - b.voteScore);
+
+        case "Most Comments":
+          return Object.values(state).sort(
+            (a, b) => b.commentCount - a.commentCount
+          );
+
+        case "Least Comments":
+          return Object.values(state).sort(
+            (a, b) => a.commentCount - b.commentCount
+          );
+        default:
+          break;
+      }
+
     default:
       return state;
   }
