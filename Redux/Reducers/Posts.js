@@ -1,4 +1,4 @@
-import { GET_ALL_POSTS, SORT_BY } from "./../Actions/Posts";
+import { ADD_NEW_POST, GET_ALL_POSTS, SORT_BY } from "./../Actions/Posts";
 
 const initialState = {};
 
@@ -9,6 +9,8 @@ const postsReducer = (state = initialState, action) => {
         ...state,
         ...action.payload,
       };
+    case ADD_NEW_POST:
+      return Object.values(state).concat(action.payload);
 
     case SORT_BY:
       switch (action.payload) {
@@ -23,10 +25,8 @@ const postsReducer = (state = initialState, action) => {
             (a, b) => b.commentCount - a.commentCount
           );
 
-        case "Least Comments":
-          return Object.values(state).sort(
-            (a, b) => a.commentCount - b.commentCount
-          );
+        case "Timestamp":
+          return Object.values(state).sort((a, b) => b.timestamp - a.timestamp);
         default:
           break;
       }

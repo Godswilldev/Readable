@@ -9,6 +9,7 @@ import { body1, body2, h3 } from "./../../Utils/Typography";
 import { useDispatch } from "react-redux";
 import { sortBy } from "../../Redux/Actions/Posts";
 import { device } from "../../Utils/MediaQueries";
+import router from "next/router";
 
 const Navbar = ({ post }) => {
   const [sortMethod, setSortMethod] = useState("Most Upvotes");
@@ -36,18 +37,20 @@ const Navbar = ({ post }) => {
       <div onClick={() => setShowSortMethod(!showSortMethod)}>
         {showSortMethod && (
           <ul className="sortMethod">
+            <li onClick={() => handleSort("Timestamp")}>Timestamp</li>
+
             <li onClick={() => handleSort("Most Upvotes")}>Most Upvotes</li>
 
             <li onClick={() => handleSort("Least Upvotes")}>Least Upvotes</li>
 
             <li onClick={() => handleSort("Most Comments")}>Most Comments</li>
 
-            <li onClick={() => handleSort("Least Comments")}>Least Comments</li>
+            {/* <li onClick={() => handleSort("Least Comments")}>Least Comments</li> */}
           </ul>
         )}
       </div>
 
-      <span className="nav__button">
+      <span onClick={() => router.push("/posts/new")} className="nav__button">
         <Button1 title="Add Feedback" />
       </span>
     </Navigation>
