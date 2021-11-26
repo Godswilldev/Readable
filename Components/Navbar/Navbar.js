@@ -43,7 +43,8 @@ const Navbar = ({ post }) => {
 
             <li onClick={() => handleSort("Most Comments")}>Most Comments</li>
 
-            <li onClick={() => handleSort("Least Comments")}>Least Comments</li>
+            {/* <li onClick={() => handleSort("Least Comments")}>Least Comments</li> */}
+            <li onClick={() => handleSort("Timestamp")}>Timestamp</li>
           </ul>
         )}
       </div>

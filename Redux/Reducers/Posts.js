@@ -25,10 +25,8 @@ const postsReducer = (state = initialState, action) => {
             (a, b) => b.commentCount - a.commentCount
           );
 
-        case "Least Comments":
-          return Object.values(state).sort(
-            (a, b) => a.commentCount - b.commentCount
-          );
+        case "Timestamp":
+          return Object.values(state).sort((a, b) => b.timestamp - a.timestamp);
         default:
           break;
       }

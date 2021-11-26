@@ -33,16 +33,14 @@ const Home = () => {
             {Object.values(posts).length < 1 ? (
               <h1>No posts</h1>
             ) : (
-              Object.values(posts)
-                ?.sort((a, b) => b.timestamp - a.timestamp)
-                .map((post) => (
-                  <Post
-                    onClick={() => router.push(`/posts/${post?.id}`)}
-                    key={post?.id}
-                  >
-                    <SinglePost post={post} />
-                  </Post>
-                ))
+              Object.values(posts).map((post) => (
+                <Post
+                  onClick={() => router.push(`/posts/${post?.id}`)}
+                  key={post?.id}
+                >
+                  <SinglePost post={post} />
+                </Post>
+              ))
             )}
           </div>
         </div>
