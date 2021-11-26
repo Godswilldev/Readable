@@ -37,15 +37,13 @@ const Navbar = ({ post }) => {
       <div onClick={() => setShowSortMethod(!showSortMethod)}>
         {showSortMethod && (
           <ul className="sortMethod">
-            <li onClick={() => handleSort("Timestamp")}>Timestamp</li>
-
             <li onClick={() => handleSort("Most Upvotes")}>Most Upvotes</li>
 
             <li onClick={() => handleSort("Least Upvotes")}>Least Upvotes</li>
 
             <li onClick={() => handleSort("Most Comments")}>Most Comments</li>
 
-            {/* <li onClick={() => handleSort("Least Comments")}>Least Comments</li> */}
+            <li onClick={() => handleSort("Least Comments")}>Least Comments</li>
           </ul>
         )}
       </div>
