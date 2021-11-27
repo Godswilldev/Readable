@@ -7,6 +7,7 @@ import router from "next/router";
 import Navbar from "../Components/Navbar/Navbar";
 import Sidebar from "../Components/Sidebar/Sidebar";
 import { device } from "./../Utils/MediaQueries";
+import NoPost from "../Components/NoPost/NoPost";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -31,7 +32,7 @@ const Home = () => {
 
           <div className="post">
             {Object.values(posts).length < 1 ? (
-              <h1>No posts</h1>
+              <NoPost />
             ) : (
               Object.values(posts).map((post) => (
                 <Post
