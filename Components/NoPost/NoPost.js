@@ -55,6 +55,7 @@ const Empty = styled.div`
     &__body {
       ${body1}
       margin-bottom: 3rem;
+      color: ${colors.col7};
     }
   }
 `;
