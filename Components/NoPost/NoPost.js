@@ -6,6 +6,7 @@ import EmptyIcon from "../../assets/suggestions/illustration-empty.svg";
 import Image from "next/image";
 import { h2 } from "../../Utils/Typography";
 import { body1 } from "./../../Utils/Typography";
+import { device } from "./../../Utils/MediaQueries";
 
 const NoPost = () => {
   return (
@@ -41,6 +42,13 @@ const Empty = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
+
+  @media ${device.tablet} {
+    width: 95%;
+  }
+  @media ${device.mobileL} {
+    width: 90%;
+  }
 
   .nopost {
     &__image {
