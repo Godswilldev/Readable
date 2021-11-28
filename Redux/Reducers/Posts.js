@@ -1,4 +1,4 @@
-import { ADD_NEW_POST, GET_ALL_POSTS, SORT_BY } from "./../Actions/Posts";
+import { ADD_NEW_POST, GET_ALL_POSTS, SORT_BY, VOTE } from "./../Actions/Posts";
 
 const initialState = {};
 
@@ -11,6 +11,25 @@ const postsReducer = (state = initialState, action) => {
       };
     case ADD_NEW_POST:
       return Object.values(state).concat(action.payload);
+
+    case VOTE:
+      let { id } = action.post;
+      let { option } = action;
+      let post = Object.values(state).find((p) => p.id === id);
+      let key = Object.keys(state).find((key) => state[key] === post);
+
+      switch (option) {
+        case "upVote":
+          return {
+            ...state,
+            [key]: action.post,
+          };
+        case "downVote":
+          return {
+            ...state,
+            [key]: action.post,
+          };
+      }
 
     case SORT_BY:
       switch (action.payload) {

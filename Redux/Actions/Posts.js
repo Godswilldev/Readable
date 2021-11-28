@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 export const GET_ALL_POSTS = "GET_ALL_POSTS";
 export const SORT_BY = "SORT_BY";
 export const ADD_NEW_POST = "ADD_NEW_POST";
+export const VOTE = "VOTE";
 
 const getAllPosts = (posts) => ({
   type: GET_ALL_POSTS,
@@ -55,5 +56,28 @@ export const handleAddNewPost =
       await dispatch(addNewPost(data));
     } catch (error) {
       console.log(`Error from handleAddNewPost ${error}`);
+    }
+  };
+
+const vote = (post, option) => ({
+  type: VOTE,
+  post,
+  option,
+});
+
+export const handleVote =
+  ({ id, option }) =>
+  async (dispatch) => {
+    try {
+      const { data } = await axiosInstance({
+        url: `/posts/${id}`,
+        method: "POST",
+        data: {
+          option,
+        },
+      });
+      dispatch(vote(data, option));
+    } catch (error) {
+      console.log(`Error from handleVote ${error}`);
     }
   };

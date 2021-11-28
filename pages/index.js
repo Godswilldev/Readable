@@ -11,12 +11,11 @@ import NoPost from "../Components/NoPost/NoPost";
 
 const Home = () => {
   const dispatch = useDispatch();
+  const posts = useSelector(({ postsReducer }) => postsReducer);
 
   useEffect(() => {
     dispatch(handleGetAllPosts());
   }, [dispatch]);
-
-  const posts = useSelector(({ postsReducer }) => postsReducer);
 
   return (
     <Index>
@@ -36,7 +35,7 @@ const Home = () => {
             ) : (
               Object.values(posts).map((post) => (
                 <Post
-                  onClick={() => router.push(`/posts/${post?.id}`)}
+                  // onClick={() => router.push(`/posts/${post?.id}`)}
                   key={post?.id}
                 >
                   <SinglePost post={post} />

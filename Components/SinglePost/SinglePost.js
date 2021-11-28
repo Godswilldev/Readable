@@ -11,13 +11,13 @@ const SinglePost = ({ post }) => {
   return (
     <Post theme={theme}>
       <div className="post__vote">
-        <VoteCount text={post.voteScore} />
+        <VoteCount post={post} />
       </div>
 
       <div className="post__post">
-        <p className="post__post--title">{post.title}</p>
+        <p className="post__post--title">{post?.title}</p>
 
-        <p className="post__post--body">{post.body}</p>
+        <p className="post__post--body">{post?.body}</p>
 
         <div className="post__post--category">
           <CategoryType text={post.category} />

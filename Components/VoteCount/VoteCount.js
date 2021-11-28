@@ -1,25 +1,37 @@
 import React, { useContext } from "react";
+import Image from "next/image";
 import styled, { ThemeContext } from "styled-components";
 import { device } from "../../Utils/MediaQueries";
 import { body3 } from "./../../Utils/Typography";
+import ArrowUp from "../../assets/shared/icon-arrow-up.svg";
+import ArrowDown from "../../assets/shared/icon-arrow-down.svg";
+import { useDispatch } from "react-redux";
+import { handleVote } from "../../Redux/Actions/Posts";
 
-const VoteCount = ({ text }) => {
+const VoteCount = ({ post }) => {
   const darkMode = useContext(ThemeContext);
+  const dispatch = useDispatch();
+
+  const handleVoting = (option) => {
+    dispatch(
+      handleVote({
+        id: post?.id,
+        option,
+      })
+    );
+  };
 
   return (
     <Vote darkMode={darkMode}>
-      <div className="voteIcon">
-        <svg width="10" height="7" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M1 6l4-4 4 4"
-            stroke={darkMode.text}
-            strokeWidth="2"
-            fill="none"
-            fillRule="evenodd"
-          />
-        </svg>
+      <div onClick={() => handleVoting("upVote")} className="voteIcon">
+        <Image width={12} height={12} src={ArrowUp} alt="Upvote" />
       </div>
-      <p className="voteScore">{text}</p>
+
+      <p className="voteScore">{post.voteScore}</p>
+
+      <div onClick={() => handleVoting("downVote")} className="voteIcon">
+        <Image width={12} height={12} src={ArrowDown} alt="Downvote" />
+      </div>
     </Vote>
   );
 };
@@ -55,5 +67,10 @@ const Vote = styled.div`
     @media ${device.mobileL} {
       padding-left: 1rem;
     }
+  }
+
+  .voteicon {
+    cursor: pointer;
+    z-index: 3;
   }
 `;
