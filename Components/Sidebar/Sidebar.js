@@ -5,8 +5,16 @@ import CategoryType from "../VoteCount/CategoryType";
 import { colors } from "./../../Utils/Theme";
 import { h3 } from "./../../Utils/Typography";
 import { device } from "./../../Utils/MediaQueries";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { handleGetcategoryPost } from "../../Redux/Actions/Posts";
 
 const Sidebar = () => {
+  const dispatch = useDispatch();
+  const { categories } = useSelector(
+    ({ categoriesReducer }) => categoriesReducer
+  );
+
   return (
     <Side>
       <div className="title">
@@ -15,19 +23,31 @@ const Sidebar = () => {
       </div>
 
       <div className="category">
-        <div>
+        <div
+          onClick={() =>
+            dispatch(
+              handleGetcategoryPost({
+                category: null,
+              })
+            )
+          }
+        >
           <CategoryType text="All" />
         </div>
-        <div>
-          <CategoryType text="React" />
-        </div>
-
-        <div>
-          <CategoryType text="Redux" />
-        </div>
-        <div>
-          <CategoryType text="Udacity" />
-        </div>
+        {categories?.map((category) => (
+          <div
+            onClick={() =>
+              dispatch(
+                handleGetcategoryPost({
+                  category: category.name,
+                })
+              )
+            }
+            key={category.name}
+          >
+            <CategoryType text={category?.name} />
+          </div>
+        ))}
       </div>
 
       <div className="roadmap">

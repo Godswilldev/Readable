@@ -1,9 +1,8 @@
 import router from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import Button1 from "../../Components/Buttons/Button1";
-import { handleGetAllCategories } from "../../Redux/Actions/Categories";
 import { handleAddNewPost } from "../../Redux/Actions/Posts";
 import Button3 from "./../../Components/Buttons/Button3";
 
@@ -12,10 +11,6 @@ const New = () => {
   const [title, setTitle] = useState("");
   const [details, setDetails] = useState("");
   const [selectedCategory, setSelectedCategory] = useState();
-
-  useEffect(() => {
-    dispatch(handleGetAllCategories());
-  }, [dispatch]);
 
   const { categories } = useSelector(
     ({ categoriesReducer }) => categoriesReducer

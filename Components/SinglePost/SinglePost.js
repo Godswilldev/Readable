@@ -5,6 +5,7 @@ import VoteCount from "../VoteCount/VoteCount";
 import CategoryType from "./../VoteCount/CategoryType";
 import { h3, body1 } from "./../../Utils/Typography";
 import { device } from "../../Utils/MediaQueries";
+import router from "next/router";
 
 const SinglePost = ({ post }) => {
   const theme = useContext(ThemeContext);
@@ -15,7 +16,12 @@ const SinglePost = ({ post }) => {
       </div>
 
       <div className="post__post">
-        <p className="post__post--title">{post?.title}</p>
+        <p
+          onClick={() => router.push(`/posts/${post?.id}`)}
+          className="post__post--title"
+        >
+          {post?.title}
+        </p>
 
         <p className="post__post--body">{post?.body}</p>
 

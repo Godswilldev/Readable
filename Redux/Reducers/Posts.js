@@ -1,4 +1,10 @@
-import { ADD_NEW_POST, GET_ALL_POSTS, SORT_BY, VOTE } from "./../Actions/Posts";
+import {
+  ADD_NEW_POST,
+  GET_ALL_POSTS,
+  GET_CATEGORY_POST,
+  SORT_BY,
+  VOTE,
+} from "./../Actions/Posts";
 
 const initialState = {};
 
@@ -11,6 +17,11 @@ const postsReducer = (state = initialState, action) => {
       };
     case ADD_NEW_POST:
       return Object.values(state).concat(action.payload);
+
+    case GET_CATEGORY_POST:
+      return {
+        ...action.payload,
+      };
 
     case VOTE:
       let { id } = action.post;

@@ -5,6 +5,7 @@ export const GET_ALL_POSTS = "GET_ALL_POSTS";
 export const SORT_BY = "SORT_BY";
 export const ADD_NEW_POST = "ADD_NEW_POST";
 export const VOTE = "VOTE";
+export const GET_CATEGORY_POST = "GET_CATEGORY_POST";
 
 const getAllPosts = (posts) => ({
   type: GET_ALL_POSTS,
@@ -79,5 +80,24 @@ export const handleVote =
       dispatch(vote(data, option));
     } catch (error) {
       console.log(`Error from handleVote ${error}`);
+    }
+  };
+
+const getCategoryPosts = (posts) => ({
+  type: GET_CATEGORY_POST,
+  payload: posts,
+});
+
+export const handleGetcategoryPost =
+  ({ category }) =>
+  async (dispatch) => {
+    try {
+      const { data } = await axiosInstance({
+        method: "GET",
+        url: category ? `/${category}/posts` : "/posts",
+      });
+      dispatch(getCategoryPosts(data));
+    } catch (error) {
+      console.log(`error from handleGetCategoryPost ${error}`);
     }
   };

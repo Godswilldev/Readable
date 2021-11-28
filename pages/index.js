@@ -3,11 +3,11 @@ import styled from "styled-components";
 import SinglePost from "../Components/SinglePost/SinglePost";
 import { handleGetAllPosts } from "../Redux/Actions/Posts";
 import { useEffect } from "react";
-import router from "next/router";
 import Navbar from "../Components/Navbar/Navbar";
 import Sidebar from "../Components/Sidebar/Sidebar";
 import { device } from "./../Utils/MediaQueries";
 import NoPost from "../Components/NoPost/NoPost";
+import { handleGetAllCategories } from "../Redux/Actions/Categories";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -15,6 +15,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(handleGetAllPosts());
+    dispatch(handleGetAllCategories());
   }, [dispatch]);
 
   return (
@@ -34,10 +35,7 @@ const Home = () => {
               <NoPost />
             ) : (
               Object.values(posts).map((post) => (
-                <Post
-                  // onClick={() => router.push(`/posts/${post?.id}`)}
-                  key={post?.id}
-                >
+                <Post key={post?.id}>
                   <SinglePost post={post} />
                 </Post>
               ))
@@ -84,6 +82,6 @@ const Index = styled.div`
 `;
 
 const Post = styled.div`
-  margin: 1.5rem 0;
+  margin: 2rem 0;
   cursor: pointer;
 `;
