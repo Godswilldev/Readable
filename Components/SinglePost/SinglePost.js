@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import styled from "styled-components";
 import { ThemeContext } from "styled-components";
 import VoteCount from "../VoteCount/VoteCount";
@@ -6,9 +6,15 @@ import CategoryType from "./../VoteCount/CategoryType";
 import { h3, body1 } from "./../../Utils/Typography";
 import { device } from "../../Utils/MediaQueries";
 import router from "next/router";
+import { handleDeletePost } from "../../Redux/Actions/Posts";
+import { useDispatch } from "react-redux";
+import EditPost from "../EditPost/EditPost";
 
 const SinglePost = ({ post }) => {
+  const dispatch = useDispatch();
   const theme = useContext(ThemeContext);
+  const [editing, setEditing] = useState(false);
+
   return (
     <Post theme={theme}>
       <div className="post__vote">
@@ -26,7 +32,18 @@ const SinglePost = ({ post }) => {
         <p className="post__post--body">{post?.body}</p>
 
         <div className="post__post--category">
-          <CategoryType text={post.category} />
+          <span>
+            <CategoryType text={post.category} />
+          </span>
+          <span onClick={() => dispatch(handleDeletePost({ id: post.id }))}>
+            <CategoryType text="Delete" />
+          </span>
+          <span onClick={() => setEditing(true)}>
+            <CategoryType text="Edit" />
+          </span>
+          {editing && (
+            <EditPost id={post.id} editing={editing} setEditing={setEditing} />
+          )}
         </div>
       </div>
 
@@ -56,7 +73,7 @@ const Post = styled.div`
   width: 82.5rem;
   height: 15.1rem;
   background-color: ${({ theme }) => theme.elements};
-  box-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.3);
+  box-shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.11);
   border-radius: 0.5rem;
   display: grid;
   grid-template-columns: 10% 80% 10%;
@@ -90,6 +107,13 @@ const Post = styled.div`
 
       &--title {
         ${h3}
+      }
+
+      &--category {
+        display: flex;
+        span {
+          margin-right: 1rem;
+        }
       }
 
       &--body {

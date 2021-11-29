@@ -40,6 +40,5 @@ const Category = styled.div`
   .voteScore {
     ${body3}
     font-weight: 600;
-    
   }
 `;

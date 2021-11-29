@@ -6,6 +6,8 @@ export const SORT_BY = "SORT_BY";
 export const ADD_NEW_POST = "ADD_NEW_POST";
 export const VOTE = "VOTE";
 export const GET_CATEGORY_POST = "GET_CATEGORY_POST";
+export const DELETE__POST = "DELETE__POST";
+export const EDIT_POST = "EDIT_POST";
 
 const getAllPosts = (posts) => ({
   type: GET_ALL_POSTS,
@@ -99,5 +101,48 @@ export const handleGetcategoryPost =
       dispatch(getCategoryPosts(data));
     } catch (error) {
       console.log(`error from handleGetCategoryPost ${error}`);
+    }
+  };
+
+const deletePost = (post) => ({
+  type: DELETE__POST,
+  payload: post,
+});
+
+export const handleDeletePost =
+  ({ id }) =>
+  async (dispatch) => {
+    try {
+      const { data } = await axiosInstance({
+        method: "DELETE",
+        url: `/posts/${id}`,
+      });
+      dispatch(deletePost(data));
+    } catch (error) {
+      console.log(`Error from handleDeletePost ${error}`);
+    }
+  };
+
+const editPost = (post) => ({
+  type: EDIT_POST,
+  payload: post,
+});
+
+export const handleEditPost =
+  ({ id, title, body, category }) =>
+  async (dispatch) => {
+    try {
+      const { data } = await axiosInstance({
+        method: "PUT",
+        url: `/posts/${id}`,
+        data: {
+          title,
+          body,
+          category,
+        },
+      });
+      dispatch(editPost(data));
+    } catch (error) {
+      console.log(`Error frommhandleeditPost ${error}`);
     }
   };

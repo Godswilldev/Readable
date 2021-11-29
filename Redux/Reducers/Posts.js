@@ -1,5 +1,7 @@
 import {
   ADD_NEW_POST,
+  DELETE__POST,
+  EDIT_POST,
   GET_ALL_POSTS,
   GET_CATEGORY_POST,
   SORT_BY,
@@ -17,6 +19,22 @@ const postsReducer = (state = initialState, action) => {
       };
     case ADD_NEW_POST:
       return Object.values(state).concat(action.payload);
+
+    case EDIT_POST:
+      let { id: uuid } = action.payload;
+      let postToEdit = Object.values(state).find((p) => p.id === uuid);
+      let editedPostkey = Object.keys(state).find(
+        (key) => state[key] === postToEdit
+      );
+
+      return {
+        ...state,
+        [editedPostkey]: action.payload,
+      };
+
+    case DELETE__POST:
+      const { id: uid } = action.payload;
+      return Object.values(state).filter((p) => p.id !== uid);
 
     case GET_CATEGORY_POST:
       return {
