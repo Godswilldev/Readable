@@ -33,16 +33,16 @@ const SinglePost = ({ post }) => {
 
         <div className="post__post--category">
           <span>
-            <CategoryType text={post.category} />
+            <CategoryType text={post?.category} />
           </span>
-          <span onClick={() => dispatch(handleDeletePost({ id: post.id }))}>
+          <span onClick={() => dispatch(handleDeletePost({ id: post?.id }))}>
             <CategoryType text="Delete" />
           </span>
           <span onClick={() => setEditing(true)}>
             <CategoryType text="Edit" />
           </span>
           {editing && (
-            <EditPost id={post.id} editing={editing} setEditing={setEditing} />
+            <EditPost id={post?.id} editing={editing} setEditing={setEditing} />
           )}
         </div>
       </div>
@@ -60,7 +60,7 @@ const SinglePost = ({ post }) => {
             fillRule="nonzero"
           />
         </svg>
-        <p className="post__comment--count">{post.commentCount}</p>
+        <p className="post__comment--count">{post?.commentCount}</p>
       </div>
     </Post>
   );

@@ -7,30 +7,38 @@ import ArrowUp from "../../assets/shared/icon-arrow-up.svg";
 import ArrowDown from "../../assets/shared/icon-arrow-down.svg";
 import { useDispatch } from "react-redux";
 import { handleVote } from "../../Redux/Actions/Posts";
+import { handleCommentVote } from "../../Redux/Actions/Comments";
 
 const VoteCount = ({ post }) => {
   const darkMode = useContext(ThemeContext);
   const dispatch = useDispatch();
 
   const handleVoting = (option) => {
-    dispatch(
-      handleVote({
-        id: post?.id,
-        option,
-      })
-    );
+    post.parentId
+      ? dispatch(
+          handleCommentVote({
+            id: post?.id,
+            option,
+          })
+        )
+      : dispatch(
+          handleVote({
+            id: post?.id,
+            option,
+          })
+        );
   };
 
   return (
     <Vote darkMode={darkMode}>
       <div onClick={() => handleVoting("upVote")} className="voteIcon">
-        <Image width={12} height={12} src={ArrowUp} alt="Upvote" />
+        <Image width={10} height={10} src={ArrowUp} alt="Upvote" />
       </div>
 
-      <p className="voteScore">{post.voteScore}</p>
+      <p className="voteScore">{post?.voteScore}</p>
 
       <div onClick={() => handleVoting("downVote")} className="voteIcon">
-        <Image width={12} height={12} src={ArrowDown} alt="Downvote" />
+        <Image width={10} height={10} src={ArrowDown} alt="Downvote" />
       </div>
     </Vote>
   );
