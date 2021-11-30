@@ -40,7 +40,6 @@ const PostDetail = () => {
 
   return (
     <div>
-      <h1>post detail {query.PostDetails} </h1>
       <SinglePost post={postToBeEdited} />
 
       <>
