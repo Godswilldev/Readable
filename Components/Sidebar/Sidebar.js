@@ -3,9 +3,10 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { handleGetcategoryPost } from "../../Redux/Actions/Posts";
 import { Side } from "./Sidebarstyles";
-import router from "next/router";
+import { useRouter } from "next/router";
 
 const Sidebar = () => {
+  const router = useRouter();
   const dispatch = useDispatch();
   const { categories } = useSelector(
     ({ categoriesReducer }) => categoriesReducer
@@ -13,7 +14,7 @@ const Sidebar = () => {
 
   return (
     <Side>
-      <div onClick={router.push("/")} className="title">
+      <div onClick={() => router.push("/")} className="title">
         <h1>Udacity</h1>
         <p>Readable</p>
       </div>
@@ -30,6 +31,7 @@ const Sidebar = () => {
         >
           <CategoryType text="All" />
         </div>
+
         {categories?.map((category) => (
           <div
             onClick={() =>

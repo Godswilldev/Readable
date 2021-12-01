@@ -60,7 +60,7 @@ export const Side = styled.div`
     position: relative;
     flex-wrap: wrap;
     @media ${device.tablet} {
-      width: 22.3rem;
+      width: 23rem;
       height: 17.8rem;
       margin-bottom: 0;
     }
