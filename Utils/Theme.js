@@ -13,18 +13,18 @@ export const colors = {
   col12: "#1A4374",
 };
 
-export const lightTheme = {
-  background: colors.col4,
-  text: colors.col6,
-  elements: colors.white,
-  lightText: colors.col5,
-  categoryType: colors.col11,
-};
+// export const lightTheme = {
+//   background: colors.col4,
+//   text: colors.col6,
+//   elements: colors.white,
+//   lightText: colors.col5,
+//   categoryType: colors.col11,
+// };
 
-export const darkTheme = {
-  text: colors.col4,
-  background: colors.col3,
-  elements: colors.col6,
-  lightText: colors.col9,
-  categoryType: colors.col7,
-};
+// export const darkTheme = {
+//   text: colors.col4,
+//   background: colors.col3,
+//   elements: colors.col6,
+//   lightText: colors.col9,
+//   categoryType: colors.col7,
+// };

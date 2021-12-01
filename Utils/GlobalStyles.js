@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import { device } from "./MediaQueries";
+import { colors } from "./Theme";
 
 export const Global = createGlobalStyle`
   *,
@@ -45,7 +46,6 @@ export const Global = createGlobalStyle`
 
   body {
     font-family: 'Jost', sans-serif;
-    transition:.3s background;
-    background: ${({ theme }) => theme.background};
-    color: ${({ theme }) => theme.text};
+    background: ${colors.col4};
+    color: ${colors.col6};
   }`;

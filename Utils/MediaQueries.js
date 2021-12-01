@@ -20,8 +20,10 @@ export const device = {
 
 // to use in another file
 // 1. import into the file e.g import {device} from "./MediaQueries.js"
-// 2. Wherever you want to make responsive use..
+// 2. Whatever you want to make responsive use..
 
-// @media ${device.laptop}{
+/*
+@media ${device.laptop}{
 
-// }
+}
+  */
