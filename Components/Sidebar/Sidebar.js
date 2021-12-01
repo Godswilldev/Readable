@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { handleGetcategoryPost } from "../../Redux/Actions/Posts";
 import { Side } from "./Sidebarstyles";
+import router from "next/router";
 
 const Sidebar = () => {
   const dispatch = useDispatch();
@@ -12,7 +13,7 @@ const Sidebar = () => {
 
   return (
     <Side>
-      <div className="title">
+      <div onClick={router.push("/")} className="title">
         <h1>Udacity</h1>
         <p>Readable</p>
       </div>

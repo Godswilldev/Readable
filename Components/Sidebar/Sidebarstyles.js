@@ -26,6 +26,7 @@ export const Side = styled.div`
     flex-direction: column;
     padding-bottom: 3rem;
     padding-left: 2rem;
+    cursor: pointer;
     background-image: radial-gradient(
       circle farthest-side at 95% 50%,
       #e84d70,
