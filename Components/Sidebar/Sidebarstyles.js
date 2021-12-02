@@ -112,7 +112,7 @@ export const Side = styled.div`
       margin: 0;
     }
     @media ${device.mobileL} {
-      top: 0rem;
+      top: -2rem;
     }
   }
 
@@ -140,7 +140,7 @@ export const Side = styled.div`
 
     @media ${device.mobileL} {
       position: relative;
-      top: -17rem;
+      top: -20rem;
     }
 
     &__title {
