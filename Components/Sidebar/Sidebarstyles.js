@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { body1, body2, body3, h2 } from "../../Utils/Typography";
+import { body1, body2, body3, h1 } from "../../Utils/Typography";
 import { colors } from "./../../Utils/Theme";
 import { h3 } from "./../../Utils/Typography";
 import { device } from "./../../Utils/MediaQueries";
@@ -7,12 +7,25 @@ import { device } from "./../../Utils/MediaQueries";
 export const Side = styled.div`
   display: flex;
   flex-direction: column;
+  z-index: 10;
 
   @media ${device.tablet} {
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
     margin: 5rem 0;
+  }
+
+  @media ${device.mobileL} {
+    background-color: ${colors.col4};
+    flex-direction: column;
+    align-items: flex-end;
+    position: absolute;
+    margin: 0;
+    height: 100vh;
+    width: 35rem;
+    transition: 0.5s ease-in;
+    left: ${({ onMobile }) => (onMobile ? "-100vw" : 0)};
   }
 
   .title {
@@ -27,6 +40,7 @@ export const Side = styled.div`
     padding-bottom: 3rem;
     padding-left: 2rem;
     cursor: pointer;
+    box-shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.11);
     background-image: radial-gradient(
       circle farthest-side at 95% 50%,
       #e84d70,
@@ -34,17 +48,45 @@ export const Side = styled.div`
       #28a7ed
     );
     h1 {
-      ${h2}
+      ${h1}
     }
 
     p {
       ${body2}
+    }
+    .hamburger {
+      display: none;
+    }
+
+    @media ${device.laptop} {
+      width: 95%;
+      margin: 2rem auto;
+      margin-top: 4rem;
     }
 
     @media ${device.tablet} {
       width: 22.3rem;
       height: 17.8rem;
       margin-bottom: 0;
+      margin: 0;
+    }
+
+    @media ${device.mobileL} {
+      width: 100vw;
+      box-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.11);
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 4rem;
+      align-items: center;
+      border-radius: 0;
+      height: 7.2rem;
+      position: fixed;
+      left: 0;
+      top: 0;
+      .hamburger {
+        display: block;
+      }
     }
   }
 
@@ -55,14 +97,23 @@ export const Side = styled.div`
     height: 16.6rem;
     border-radius: 1rem;
     margin-bottom: 3rem;
-    box-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.3);
+    box-shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.11);
     background-color: ${colors.white};
     position: relative;
     flex-wrap: wrap;
+    @media ${device.laptop} {
+      width: 95%;
+      margin: 2rem auto;
+    }
     @media ${device.tablet} {
       width: 23rem;
       height: 17.8rem;
       margin-bottom: 0;
+      margin: 0;
+    }
+    @media ${device.mobileL} {
+      /* position: relative; */
+      /* top: 10rem; */
     }
   }
 
@@ -70,15 +121,27 @@ export const Side = styled.div`
     background-color: green;
     height: 17.8rem;
     border-radius: 1rem;
-    box-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.3);
+    box-shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.11);
     background-color: ${colors.white};
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
+
+    @media ${device.laptop} {
+      width: 95%;
+      margin: 2rem auto;
+      margin-bottom: 5rem;
+    }
     @media ${device.tablet} {
-      width: 22.3rem;
+      width: 23rem;
       height: 17.8rem;
+      margin: 0;
+    }
+
+    @media ${device.mobileL} {
+      /* position: relative;
+      top: 14rem; */
     }
 
     &__title {
