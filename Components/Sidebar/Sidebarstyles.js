@@ -114,6 +114,12 @@ export const Side = styled.div`
     @media ${device.mobileL} {
       top: -2rem;
     }
+    @media ${device.mobileM} {
+      top: -5rem;
+    }
+    @media ${device.mobileS} {
+      top: -7rem;
+    }
   }
 
   .roadmap {
@@ -141,6 +147,14 @@ export const Side = styled.div`
     @media ${device.mobileL} {
       position: relative;
       top: -20rem;
+    }
+    @media ${device.mobileM} {
+      position: relative;
+      top: -30rem;
+    }
+    @media ${device.mobileS} {
+      position: relative;
+      top: -40rem;
     }
 
     &__title {

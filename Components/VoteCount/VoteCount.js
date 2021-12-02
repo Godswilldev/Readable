@@ -28,13 +28,13 @@ const VoteCount = ({ post }) => {
   return (
     <Vote>
       <div onClick={() => handleVoting("upVote")} className="voteIcon">
-        <Image width={10} height={10} src={ArrowUp} alt="Upvote" />
+        <Image width={10} height={8} src={ArrowUp} alt="Upvote" />
       </div>
 
       <p className="voteScore">{post?.voteScore}</p>
 
       <div onClick={() => handleVoting("downVote")} className="voteIcon">
-        <Image width={10} height={10} src={ArrowDown} alt="Downvote" />
+        <Image width={10} height={8} src={ArrowDown} alt="Downvote" />
       </div>
     </Vote>
   );

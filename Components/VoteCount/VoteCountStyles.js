@@ -24,8 +24,8 @@ export const Vote = styled.div`
 
   @media ${device.mobileL} {
     flex-direction: row;
-    height: 3.2rem;
-    width: 6.9rem;
+    height: 3.5rem;
+    width: 8.5rem;
   }
 
   .voteScore {
@@ -35,7 +35,7 @@ export const Vote = styled.div`
 
     @media ${device.mobileL} {
       padding-left: 1rem;
-      padding-right:1rem;
+      padding-right: 1rem;
     }
   }
 
