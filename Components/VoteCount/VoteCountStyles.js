@@ -17,7 +17,7 @@ export const Vote = styled.div`
   transition: 0.3s all;
   &:hover {
     background-color: ${colors.col9};
-    .voteScore{
+    .voteScore {
       color: ${colors.col11};
     }
   }
@@ -35,6 +35,7 @@ export const Vote = styled.div`
 
     @media ${device.mobileL} {
       padding-left: 1rem;
+      padding-right:1rem;
     }
   }
 
