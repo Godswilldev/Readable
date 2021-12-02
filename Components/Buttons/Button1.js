@@ -11,7 +11,7 @@ const Button1 = ({ title }) => {
         width: "15.8rem",
         height: "4.4rem",
         color: colors.col4,
-        fontSize: "1.4rem",
+        fontSize: "1.2rem",
         transition: "0.3s all",
       }}
       variant="contained"
