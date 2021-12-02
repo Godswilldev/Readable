@@ -4,6 +4,10 @@ import { useDispatch } from "react-redux";
 import { handleGetcategoryPost } from "../../Redux/Actions/Posts";
 import { Side } from "./Sidebarstyles";
 import { useRouter } from "next/router";
+import Image from "next/image";
+import hamburger from "../../assets/shared/mobile/icon-hamburger.svg";
+import icon_close from "../../assets/shared/mobile/icon-close.svg";
+import { useState } from "react";
 
 const Sidebar = () => {
   const router = useRouter();
@@ -11,12 +15,23 @@ const Sidebar = () => {
   const { categories } = useSelector(
     ({ categoriesReducer }) => categoriesReducer
   );
+  const [onMobile, setOnMobile] = useState(true);
 
   return (
-    <Side>
+    <Side onMobile={onMobile}>
       <div onClick={() => router.push("/")} className="title">
-        <h1>Udacity</h1>
-        <p>Readable</p>
+        <span>
+          <h1>Udacity</h1>
+          <p>Readable</p>
+        </span>
+
+        <span className="hamburger">
+          <Image
+            onClick={() => setOnMobile(!onMobile)}
+            src={onMobile ? hamburger : icon_close}
+            alt="hamburger menu"
+          />
+        </span>
       </div>
 
       <div className="category">

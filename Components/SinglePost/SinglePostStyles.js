@@ -16,8 +16,11 @@ export const Post = styled.div`
   justify-content: center;
   padding: 2rem;
   margin: 0 auto;
-  @media ${device.tablet} {
+  @media ${device.laptop} {
     width: 95%;
+  }
+  @media ${device.tablet} {
+    width: 90%;
   }
 
   @media ${device.mobileL} {
@@ -26,6 +29,8 @@ export const Post = styled.div`
     height: 20rem;
     width: 90%;
     padding: 4rem;
+    position: relative;
+    top: 17rem;
   }
 
   .post {

@@ -56,6 +56,7 @@ const Index = styled.div`
   left: 12%;
 
   @media ${device.laptop} {
+    top: 5%;
     left: 1%;
   }
 
@@ -83,5 +84,4 @@ const Index = styled.div`
 
 const Post = styled.div`
   margin: 2rem 0;
-  cursor: pointer;
 `;

@@ -15,11 +15,18 @@ export const Navigation = styled.div`
   justify-content: space-between;
   padding: 0 2rem;
   box-shadow: 0.5rem 0.5rem 0.5rem 0rem rgba(0, 0, 0, 0.2);
-  @media ${device.tablet} {
+  @media ${device.laptop} {
     width: 95%;
   }
-  @media ${device.mobileL} {
+  @media ${device.tablet} {
     width: 90%;
+  }
+  @media ${device.mobileL} {
+    position: fixed;
+    top: 8rem;
+    border-radius: 0;
+    z-index: 4;
+    width: 100%;
   }
 
   .suggestions {

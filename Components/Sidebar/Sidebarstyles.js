@@ -19,11 +19,11 @@ export const Side = styled.div`
   @media ${device.mobileL} {
     background-color: ${colors.col4};
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
     position: absolute;
     margin: 0;
     height: 100vh;
-    width: 35rem;
+    width: 30rem;
     transition: 0.5s ease-in;
     left: ${({ onMobile }) => (onMobile ? "-100vw" : 0)};
   }
@@ -112,8 +112,7 @@ export const Side = styled.div`
       margin: 0;
     }
     @media ${device.mobileL} {
-      /* position: relative; */
-      /* top: 10rem; */
+      top: 0rem;
     }
   }
 
@@ -140,8 +139,8 @@ export const Side = styled.div`
     }
 
     @media ${device.mobileL} {
-      /* position: relative;
-      top: 14rem; */
+      position: relative;
+      top: -17rem;
     }
 
     &__title {
