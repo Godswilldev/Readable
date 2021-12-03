@@ -8,6 +8,7 @@ export const Empty = styled.div`
   background-color: ${colors.white};
   width: 82.5rem;
   height: 60rem;
+  margin: 0 auto;
   margin-top: 4rem;
   border-radius: 1rem;
   box-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.3);
@@ -17,11 +18,15 @@ export const Empty = styled.div`
   justify-content: center;
   text-align: center;
 
-  @media ${device.tablet} {
+  @media ${device.laptop} {
     width: 95%;
+  }
+  @media ${device.tablet} {
+    width: 90%;
   }
   @media ${device.mobileL} {
     width: 90%;
+    margin-top: 20rem;
   }
 
   .nopost {
