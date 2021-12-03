@@ -18,19 +18,15 @@ const Sidebar = () => {
   const [onMobile, setOnMobile] = useState(true);
 
   return (
-    <Side onMobile={onMobile}>
+    <Side mobile={onMobile}>
       <div onClick={() => router.push("/")} className="title">
         <span>
           <h1>Udacity</h1>
           <p>Readable</p>
         </span>
 
-        <span className="hamburger">
-          <Image
-            onClick={() => setOnMobile(!onMobile)}
-            src={onMobile ? hamburger : icon_close}
-            alt="hamburger menu"
-          />
+        <span onClick={() => setOnMobile(!onMobile)} className="hamburger">
+          <Image src={onMobile ? hamburger : icon_close} alt="hamburger menu" />
         </span>
       </div>
 

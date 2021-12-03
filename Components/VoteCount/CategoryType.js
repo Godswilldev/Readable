@@ -1,10 +1,10 @@
-import { Category } from "./CategoryTypeStyles";
+import { Categ } from "./CategoryTypeStyles";
 
 const CategoryType = ({ text }) => {
   return (
-    <Category>
-      <p className="voteScore">{text}</p>
-    </Category>
+    <Categ>
+        <p className="voteScore">{text}</p>
+    </Categ>
   );
 };
 

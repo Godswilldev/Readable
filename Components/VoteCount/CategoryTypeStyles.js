@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { colors } from "./../../Utils/Theme";
 import { body3 } from "./../../Utils/Typography";
 
-export const Category = styled.div`
+export const Categ = styled.span`
   width: min-content;
   height: 3rem;
   padding: 1rem;
