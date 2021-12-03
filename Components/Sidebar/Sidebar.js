@@ -15,7 +15,7 @@ const Sidebar = () => {
   const { categories } = useSelector(
     ({ categoriesReducer }) => categoriesReducer
   );
-  const [onMobile, setOnMobile] = useState(false);
+  const [onMobile, setOnMobile] = useState(true);
 
   return (
     <Side mobile={onMobile}>
