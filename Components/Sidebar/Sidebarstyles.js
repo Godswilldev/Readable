@@ -25,7 +25,7 @@ export const Side = styled.div`
     height: 100vh;
     width: 30rem;
     transition: 0.5s ease-in;
-    left: ${({ onMobile }) => (onMobile ? "-100vw" : 0)};
+    left: ${({ mobile }) => (mobile ? "-100vw" : 0)};
   }
 
   .title {

@@ -25,8 +25,12 @@ const Sidebar = () => {
           <p>Readable</p>
         </span>
 
-        <span onClick={() => setOnMobile(!onMobile)} className="hamburger">
-          <Image src={onMobile ? hamburger : icon_close} alt="hamburger menu" />
+        <span className="hamburger">
+          <Image
+            onClick={() => setOnMobile(!onMobile)}
+            src={onMobile ? hamburger : icon_close}
+            alt="hamburger menu"
+          />
         </span>
       </div>
 

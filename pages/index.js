@@ -20,27 +20,25 @@ const Home = () => {
 
   return (
     <Index>
-      <div>
-        <div className="sidebar">
-          <Sidebar />
+      <div className="sidebar">
+        <Sidebar />
+      </div>
+
+      <div className="posts">
+        <div className="navbar">
+          <Navbar post={posts} />
         </div>
 
-        <div className="posts">
-          <div className="navbar">
-            <Navbar post={posts} />
-          </div>
-
-          <div className="post">
-            {Object.values(posts).length < 1 ? (
-              <NoPost />
-            ) : (
-              Object.values(posts).map((post) => (
-                <Post key={post?.id}>
-                  <SinglePost post={post} />
-                </Post>
-              ))
-            )}
-          </div>
+        <div className="post">
+          {Object.values(posts).length < 1 ? (
+            <NoPost />
+          ) : (
+            Object.values(posts).map((post) => (
+              <Post key={post?.id}>
+                <SinglePost post={post} />
+              </Post>
+            ))
+          )}
         </div>
       </div>
     </Index>
@@ -50,35 +48,21 @@ const Home = () => {
 export default Home;
 
 const Index = styled.div`
-  max-width: 100vw;
-  position: absolute;
-  top: 10%;
-  left: 12%;
+  padding: 6%;
+  display: grid;
+  grid-template-columns: 20% 1fr;
+  position: relative;
 
+  @media ${device.laptopM} {
+    padding: 3%;
+  }
   @media ${device.laptop} {
-    top: 5%;
-    left: 1%;
+    grid-template-columns: 25% 1fr;
   }
 
-  .sidebar {
-    width: 25.5rem;
-    height: 52.9rem;
-    position: fixed;
-
-    @media ${device.tablet} {
-      width: 68.9rem;
-      height: 17.8rem;
-    }
-  }
-
-  .posts {
-    position: absolute;
-    left: 26rem;
-    margin-left: 5rem;
-
-    @media ${device.laptop} {
-      margin-left: 2rem;
-    }
+  @media ${device.tablet} {
+    grid-template-columns: 1fr;
+    padding: 0;
   }
 `;
 
