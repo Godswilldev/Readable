@@ -15,10 +15,11 @@ const Sidebar = () => {
   const { categories } = useSelector(
     ({ categoriesReducer }) => categoriesReducer
   );
-  const [onMobile, setOnMobile] = useState(true);
+  const [onMobile, setOnMobile] = useState(false);
 
   return (
     <Side mobile={onMobile}>
+      {!onMobile && <div className="overlay"></div>}
       <div onClick={() => router.push("/")} className="title">
         <span>
           <h1>Udacity</h1>
@@ -44,23 +45,25 @@ const Sidebar = () => {
             )
           }
         >
-          <CategoryType text="All" />
+          <CategoryType text="ALL" />
         </div>
 
-        {categories?.map((category) => (
-          <div
-            onClick={() =>
-              dispatch(
-                handleGetcategoryPost({
-                  category: category.name,
-                })
-              )
-            }
-            key={category.name}
-          >
-            <CategoryType text={category?.name} />
-          </div>
-        ))}
+        <>
+          {categories?.map((category) => (
+            <div
+              onClick={() =>
+                dispatch(
+                  handleGetcategoryPost({
+                    category: category.name,
+                  })
+                )
+              }
+              key={category.name}
+            >
+              <CategoryType text={category?.name.toUpperCase()} />
+            </div>
+          ))}
+        </>
       </div>
 
       <div className="roadmap">

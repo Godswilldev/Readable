@@ -9,6 +9,15 @@ export const Side = styled.div`
   flex-direction: column;
   z-index: 10;
 
+  .overlay {
+    position: fixed;
+    width: 51vw;
+    height: 100vh;
+    right: 0rem;
+    transition: 0.5s all;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
   @media ${device.tablet} {
     flex-direction: row;
     align-items: center;
@@ -60,8 +69,6 @@ export const Side = styled.div`
 
     @media ${device.laptop} {
       width: 95%;
-      margin: 2rem auto;
-      margin-top: 4rem;
     }
 
     @media ${device.tablet} {
@@ -69,6 +76,9 @@ export const Side = styled.div`
       height: 17.8rem;
       margin-bottom: 0;
       margin: 0;
+    }
+    @media ${device.tabletSM} {
+      width: 18rem;
     }
 
     @media ${device.mobileL} {
@@ -91,16 +101,17 @@ export const Side = styled.div`
   }
 
   .category {
-    display: flex;
     align-items: center;
-    justify-content: space-around;
     height: 16.6rem;
     border-radius: 1rem;
     margin-bottom: 3rem;
     box-shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.11);
     background-color: ${colors.white};
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    justify-items: center;
     position: relative;
-    flex-wrap: wrap;
+
     @media ${device.laptop} {
       width: 95%;
       margin: 2rem auto;
@@ -111,14 +122,18 @@ export const Side = styled.div`
       margin-bottom: 0;
       margin: 0;
     }
+    @media ${device.tabletSM} {
+      width: 18rem;
+    }
     @media ${device.mobileL} {
-      top: -2rem;
+      top: 0rem;
+      width: 21rem;
     }
     @media ${device.mobileM} {
-      top: -5rem;
+      top: -2rem;
     }
     @media ${device.mobileS} {
-      top: -7rem;
+      top: -5rem;
     }
   }
 
@@ -144,17 +159,22 @@ export const Side = styled.div`
       margin: 0;
     }
 
+    @media ${device.tabletSM} {
+      width: 18rem;
+    }
+
     @media ${device.mobileL} {
       position: relative;
       top: -20rem;
+      width: 21rem;
     }
     @media ${device.mobileM} {
       position: relative;
-      top: -30rem;
+      top: -28rem;
     }
     @media ${device.mobileS} {
       position: relative;
-      top: -40rem;
+      top: -38rem;
     }
 
     &__title {
