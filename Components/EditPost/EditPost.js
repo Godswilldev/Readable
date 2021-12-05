@@ -7,11 +7,12 @@ import { colors } from "../../Utils/Theme";
 import Button1 from "../Buttons/Button1";
 import Button3 from "../Buttons/Button1";
 import Button4 from "./../Buttons/Button4";
-import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import { useForm } from "react-hook-form";
+import Image from "next/image";
+import EditIcon from "../../assets/shared/icon-edit-feedback.svg";
+import { body3, h1, h3, h4 } from "../../Utils/Typography";
 
 const EditPost = ({ id, setEditing, post }) => {
   const dispatch = useDispatch();
@@ -47,31 +48,36 @@ const EditPost = ({ id, setEditing, post }) => {
   return (
     <Edit>
       <form className="form" onSubmit={handleSubmit}>
-        <h1>Editing {post.title}</h1>
-        <input
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="Post title"
-        />
+        <div className="formIcon">
+          <Image width="35rem" height="35rem" src={EditIcon} alt="Edit Icon" />
+        </div>
+        <h1 className="form__Heading">Editing `{post.title}`</h1>
 
-        <div>
-          <FormControl sx={{ m: 1, minWidth: 80 }}>
-            <InputLabel id="demo-simple-select-autowidth-label">
-              Category
-            </InputLabel>
+        <div className="postTitle">
+          <h3>Feedback Title</h3>
+          <p>Add a short Description Headline</p>
+          <input
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder={title}
+          />
+        </div>
 
+        <div className="postSelect">
+          <h3>Category</h3>
+          <p>Choose a category for your Post</p>
+          <FormControl style={{ width: "100%" }} className="formControl">
             <Select
               labelId="demo-simple-select-autowidth-label"
               id="demo-simple-select-autowidth"
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
               label="Category"
-              style={{ width: "20rem" }}
             >
               {categories?.map((category) => (
                 <MenuItem
-                  style={{ width: "20rem" }}
+                  style={{ width: "100%" }}
                   value={category?.name}
                   key={category?.name}
                 >
@@ -82,25 +88,44 @@ const EditPost = ({ id, setEditing, post }) => {
           </FormControl>
         </div>
 
-        <textarea
-          cols="30"
-          rows="10"
-          value={details}
-          onChange={(e) => setDetails(e.target.value)}
-          placeholder="Post details"
-        />
+        <div className="postDetail">
+          <h3>Post Detail</h3>
+          <p>
+            Include any specific comments on what should be improved, added,
+            etc.
+          </p>
 
-        <div>
-          <span onClick={() => dispatch(handleDeletePost({ id: post?.id }))}>
-            <Button4 title="Delete" />
-          </span>
+          <textarea
+            cols="30"
+            rows="5"
+            value={details}
+            onChange={(e) => setDetails(e.target.value)}
+            placeholder={details}
+          />
+        </div>
 
-          <span onClick={() => setEditing(false)}>
-            <Button3 title="cancel" />
-          </span>
+        <div className="post__Btns">
+          <button
+            className="post__Btns--delete"
+            onClick={() => dispatch(handleDeletePost({ id: post?.id }))}
+          >
+            Delete
+          </button>
+          <span>
+            <button
+              className="post__Btns--cancel"
+              onClick={() => setEditing(false)}
+            >
+              Cancel
+            </button>
 
-          <span onClick={handleSubmit}>
-            <Button1 title="save" />
+            <button
+              className="post__Btns--save"
+              type="submit"
+              onClick={handleSubmit}
+            >
+              Save
+            </button>
           </span>
         </div>
       </form>
@@ -127,11 +152,116 @@ const Edit = styled.div`
     backdrop-filter: blur(10px);
   }
   .form {
+    transition: 0.5s all;
     background-color: ${colors.white};
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
     width: 54rem;
-    height: 54rem;
+    height: 60rem;
+    padding: 1rem 5rem;
+  }
+
+  .formIcon {
+    position: relative;
+    top: -3rem;
+  }
+
+  .form__Heading {
+    ${h1}
+    margin-bottom: 1rem;
+    color: ${colors.col6};
+  }
+
+  input,
+  textarea {
+    border: none;
+    outline: none;
+    background: #f7f8fd;
+    width: 100%;
+    padding: 1rem;
+    margin: 1rem 0;
+    color: ${colors.col7};
+    border-radius: 0.3rem;
+  }
+
+  .postTitle {
+    h3 {
+      color: ${colors.col6};
+      ${h4};
+      margin-bottom: 0.5rem;
+    }
+    p {
+      color: ${colors.col7};
+      ${body3}
+    }
+
+    input {
+      margin-top: 1.5rem;
+    }
+  }
+
+  .postDetail {
+    margin-top: 2rem;
+    h3 {
+      color: ${colors.col6};
+      ${h4};
+      margin-bottom: 0.5rem;
+    }
+    p {
+      color: ${colors.col7};
+      ${body3}
+    }
+
+    textarea {
+      margin-top: 1.5rem;
+    }
+  }
+
+  .postSelect {
+    margin-top: 2rem;
+
+    h3 {
+      color: ${colors.col6};
+      ${h4};
+      margin-bottom: 0.5rem;
+    }
+    p {
+      color: ${colors.col7};
+      ${body3}
+    }
+
+    .formControl {
+      margin-top: 1.5rem;
+    }
+  }
+
+  .post__Btns {
+    display: flex;
+    justify-content: space-between;
+    button {
+      border: none;
+      outline: none;
+      color: #f2f4fe;
+      border-radius: 1rem;
+    }
+
+    &--delete {
+      background-color: #d73737;
+      width: 9.3rem;
+      height: 4.4rem;
+    }
+    &--cancel {
+      background-color: ${colors.col6};
+      width: 9.3rem;
+      height: 4.4rem;
+      margin-right:2rem;
+    }
+
+    &--save {
+      background-color: ${colors.col1};
+      width: 14.4rem;
+      height: 4.4rem;
+    }
   }
 `;
