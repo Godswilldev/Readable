@@ -4,7 +4,6 @@ import VoteCount from "../VoteCount/VoteCount";
 import Image from "next/image";
 import CategoryType from "./../VoteCount/CategoryType";
 import router from "next/router";
-import { handleDeletePost } from "../../Redux/Actions/Posts";
 import { useDispatch } from "react-redux";
 import EditPost from "../EditPost/EditPost";
 import { Post } from "./SinglePostStyles";
@@ -35,14 +34,17 @@ const SinglePost = ({ post }) => {
           <span>
             <CategoryType text={post?.category} />
           </span>
-          <span onClick={() => dispatch(handleDeletePost({ id: post?.id }))}>
-            <CategoryType text="Delete" />
-          </span>
-          <span onClick={() => setEditing(true)}>
+
+          <span onClick={() => setEditing(!editing)}>
             <CategoryType text="Edit" />
           </span>
           {editing && (
-            <EditPost id={post?.id} editing={editing} setEditing={setEditing} />
+            <EditPost
+              post={post}
+              id={post?.id}
+              editing={editing}
+              setEditing={setEditing}
+            />
           )}
         </div>
       </div>
