@@ -157,14 +157,15 @@ const Edit = styled.div`
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     width: 54rem;
-    height: 60rem;
+    height: 88%;
     padding: 1rem 5rem;
   }
 
   .formIcon {
     position: relative;
-    top: -3rem;
+    top: -7.5rem;
   }
 
   .form__Heading {
@@ -239,11 +240,20 @@ const Edit = styled.div`
   .post__Btns {
     display: flex;
     justify-content: space-between;
+    margin-top: 3rem;
+    width: 100%;
+
     button {
       border: none;
       outline: none;
       color: #f2f4fe;
       border-radius: 1rem;
+      cursor: pointer;
+      box-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.3);
+      &:focus,
+      &:active {
+        box-shadow: 0.4rem 0.4rem 0.5rem rgba(0, 0, 0, 0.2);
+      }
     }
 
     &--delete {
@@ -255,7 +265,7 @@ const Edit = styled.div`
       background-color: ${colors.col6};
       width: 9.3rem;
       height: 4.4rem;
-      margin-right:2rem;
+      margin-right: 2rem;
     }
 
     &--save {
