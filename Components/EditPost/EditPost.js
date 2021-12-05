@@ -13,6 +13,7 @@ import Select from "@mui/material/Select";
 import Image from "next/image";
 import EditIcon from "../../assets/shared/icon-edit-feedback.svg";
 import { body3, h1, h3, h4 } from "../../Utils/Typography";
+import { device } from "./../../Utils/MediaQueries";
 
 const EditPost = ({ id, setEditing, post }) => {
   const dispatch = useDispatch();
@@ -48,85 +49,92 @@ const EditPost = ({ id, setEditing, post }) => {
   return (
     <Edit>
       <form className="form" onSubmit={handleSubmit}>
-        <div className="formIcon">
-          <Image width="35rem" height="35rem" src={EditIcon} alt="Edit Icon" />
-        </div>
-        <h1 className="form__Heading">Editing `{post.title}`</h1>
+        <div className="form__post">
+          <div className="formIcon">
+            <Image
+              width="35rem"
+              height="35rem"
+              src={EditIcon}
+              alt="Edit Icon"
+            />
+          </div>
+          <h1 className="form__Heading">Editing `{post.title}`</h1>
 
-        <div className="postTitle">
-          <h3>Feedback Title</h3>
-          <p>Add a short Description Headline</p>
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            placeholder={title}
-          />
-        </div>
+          <div className="postTitle">
+            <h3>Feedback Title</h3>
+            <p>Add a short Description Headline</p>
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder={title}
+            />
+          </div>
 
-        <div className="postSelect">
-          <h3>Category</h3>
-          <p>Choose a category for your Post</p>
-          <FormControl style={{ width: "100%" }} className="formControl">
-            <Select
-              labelId="demo-simple-select-autowidth-label"
-              id="demo-simple-select-autowidth"
-              value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value)}
-              label="Category"
-            >
-              {categories?.map((category) => (
-                <MenuItem
-                  style={{ width: "100%" }}
-                  value={category?.name}
-                  key={category?.name}
-                >
-                  {category?.name.toUpperCase()}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-        </div>
+          <div className="postSelect">
+            <h3>Category</h3>
+            <p>Choose a category for your Post</p>
+            <FormControl style={{ width: "100%" }} className="formControl">
+              <Select
+                labelId="demo-simple-select-autowidth-label"
+                id="demo-simple-select-autowidth"
+                value={selectedCategory}
+                onChange={(e) => setSelectedCategory(e.target.value)}
+                label="Category"
+              >
+                {categories?.map((category) => (
+                  <MenuItem
+                    style={{ width: "100%" }}
+                    value={category?.name}
+                    key={category?.name}
+                  >
+                    {category?.name.toUpperCase()}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </div>
 
-        <div className="postDetail">
-          <h3>Post Detail</h3>
-          <p>
-            Include any specific comments on what should be improved, added,
-            etc.
-          </p>
+          <div className="postDetail">
+            <h3>Post Detail</h3>
+            <p>
+              Include any specific comments on what should be improved, added,
+              etc.
+            </p>
 
-          <textarea
-            cols="30"
-            rows="5"
-            value={details}
-            onChange={(e) => setDetails(e.target.value)}
-            placeholder={details}
-          />
-        </div>
+            <textarea
+              cols="30"
+              rows="5"
+              value={details}
+              onChange={(e) => setDetails(e.target.value)}
+              placeholder={details}
+            />
+          </div>
 
-        <div className="post__Btns">
-          <button
-            className="post__Btns--delete"
-            onClick={() => dispatch(handleDeletePost({ id: post?.id }))}
-          >
-            Delete
-          </button>
-          <span>
+          <div className="post__Btns">
             <button
-              className="post__Btns--cancel"
-              onClick={() => setEditing(false)}
+              className="post__Btns--delete"
+              onClick={() => dispatch(handleDeletePost({ id: post?.id }))}
             >
-              Cancel
+              Delete
             </button>
+            <span>
+              <button
+                className="post__Btns--cancel"
+                onClick={() => setEditing(false)}
+              >
+                Cancel
+              </button>
 
-            <button
-              className="post__Btns--save"
-              type="submit"
-              onClick={handleSubmit}
-            >
-              Save
-            </button>
-          </span>
+              <button
+                className="post__Btns--save"
+                type="submit"
+                onClick={handleSubmit}
+              >
+                Save
+              </button>
+            </span>
+          </div>
         </div>
       </form>
     </Edit>
@@ -159,13 +167,28 @@ const Edit = styled.div`
     flex-direction: column;
     justify-content: center;
     width: 54rem;
-    height: 88%;
+    height: 60rem;
     padding: 1rem 5rem;
+
+    @media ${device.tablet} {
+      height:91%;
+    }
+  }
+
+  .form__post {
+    @media ${device.laptop} {
+      margin-top: -3rem;
+    }
+    
   }
 
   .formIcon {
     position: relative;
-    top: -7.5rem;
+    top: -4rem;
+    @media ${device.laptop} {
+      top: -2rem;
+    }
+   
   }
 
   .form__Heading {
@@ -240,7 +263,7 @@ const Edit = styled.div`
   .post__Btns {
     display: flex;
     justify-content: space-between;
-    margin-top: 3rem;
+    margin-top: 1.5rem;
     width: 100%;
 
     button {
