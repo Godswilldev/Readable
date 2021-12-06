@@ -76,14 +76,18 @@ const EditPost = ({ id, setEditing, post }) => {
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
                 label="Category"
-                style={{ fontSize: "1.7rem", color: colors.col7 }}
+                style={{
+                  fontSize: "1.5rem",
+                  color: colors.col7,
+                  height: "3.5rem",
+                }}
               >
                 {categories?.map((category) => (
                   <MenuItem
                     style={{ width: "100%" }}
                     value={category?.name}
                     key={category?.name}
-                    style={{ fontSize: "1.7rem" }}
+                    style={{ fontSize: "1.7rem", height: "3.5rem" }}
                   >
                     {category?.name.toUpperCase()}
                   </MenuItem>

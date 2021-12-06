@@ -30,21 +30,8 @@ export const Edit = styled.div`
     flex-direction: column;
     justify-content: center;
     width: 54rem;
-    height: 60rem;
-    padding: 1rem 5rem;
-
-    @media ${device.tablet} {
-      height: 91%;
-    }
-    @media ${device.mobileL} {
-      height: 85%;
-    }
-    @media ${device.mobileM} {
-      height: 80%;
-    }
-    @media ${device.mobileS} {
-      height: 70%;
-    }
+    padding: 2rem 4rem;
+    padding-bottom:3rem;
   }
 
   .form__post {
@@ -57,17 +44,12 @@ export const Edit = styled.div`
     position: relative;
     top: -4rem;
     @media ${device.laptop} {
-      top: -2rem;
-    }
-    @media ${device.tablet} {
-      top: -3.5rem;
+      top: -1.5rem;
     }
     @media ${device.mobileM} {
-      top: -5rem;
+      top: -2rem;
     }
-    @media ${device.mobileS} {
-      top: -6rem;
-    }
+    
   }
 
   .form__Heading {
@@ -122,7 +104,7 @@ export const Edit = styled.div`
   }
 
   .postSelect {
-    margin-top: 2rem;
+    margin-top: 1rem;
 
     h3 {
       color: ${colors.col6};
