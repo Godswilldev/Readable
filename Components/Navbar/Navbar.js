@@ -5,11 +5,12 @@ import Button1 from "./../Buttons/Button1";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { sortBy } from "../../Redux/Actions/Posts";
-import router from "next/router";
 import { Navigation } from "./NavbarStyles";
+import NewPost from "../NewPost/NewPost";
 
 const Navbar = ({ post }) => {
   const [sortMethod, setSortMethod] = useState("Most Upvotes");
+  const [newPost, setNewPost] = useState(false)
   const postLength = Object.values(post).length;
   const dispatch = useDispatch();
 
@@ -45,9 +46,14 @@ const Navbar = ({ post }) => {
         )}
       </div>
 
-      <span onClick={() => router.push("/posts/new")} className="nav__button">
+      <span onClick={() => setNewPost(true)} className="nav__button">
         <Button1 title="Add Feedback" />
       </span>
+      <>
+          {
+            newPost&&<NewPost setNewPost={setNewPost}  />
+          }
+      </>
     </Navigation>
   );
 };

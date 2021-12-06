@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import Button1 from "../../Components/Buttons/Button1";
 import { handleAddNewPost } from "../../Redux/Actions/Posts";
 import Button3 from "./../../Components/Buttons/Button3";
+import  styled  from 'styled-components';
 
 const New = () => {
   const dispatch = useDispatch();
@@ -32,6 +33,7 @@ const New = () => {
   };
 
   return (
+    <NewPost>
     <form onSubmit={handleSubmit}>
       <h1>New Post</h1>
       <input
@@ -71,7 +73,17 @@ const New = () => {
         <Button1 title="Add" />
       </span>
     </form>
+    </NewPost>
   );
 };
 
 export default New;
+
+const NewPost = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:100vw;
+  height:100vh;
+  margin: 5rem 0;
+`;
