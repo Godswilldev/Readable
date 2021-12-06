@@ -11,11 +11,16 @@ export const Side = styled.div`
 
   .overlay {
     position: fixed;
-    width: 51vw;
+    width: 52vw;
+    z-index:-1;
     height: 100vh;
     right: 0rem;
     transition: 0.5s all;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.4);
+    @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    }
   }
 
   @media ${device.tablet} {

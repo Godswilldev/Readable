@@ -6,7 +6,6 @@ import { colors } from "../../Utils/Theme";
 export const Edit = styled.div`
   transition: 0.5s all;
   position: fixed;
-  background-color: rgba(0, 0, 0, 0.5);
   width: 100vw;
   height: 100vh;
   left: 0;
@@ -15,6 +14,7 @@ export const Edit = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
   @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
