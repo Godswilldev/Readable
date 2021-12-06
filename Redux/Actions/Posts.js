@@ -55,7 +55,6 @@ export const handleAddNewPost =
           category,
         },
       });
-      console.log(data);
       await dispatch(addNewPost(data));
     } catch (error) {
       console.log(`Error from handleAddNewPost ${error}`);

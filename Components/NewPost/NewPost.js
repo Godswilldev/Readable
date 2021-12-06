@@ -14,7 +14,7 @@ const NewPost = ({ setNewPost}) => {
   const dispatch = useDispatch();
   const [title, setTitle] = useState("");
   const [details, setDetails] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState();
+  const [selectedCategory, setSelectedCategory] = useState("react");
   const { categories } = useSelector(
     ({ categoriesReducer }) => categoriesReducer
   );

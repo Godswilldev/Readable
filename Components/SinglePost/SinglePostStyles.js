@@ -14,7 +14,7 @@ export const Post = styled.div`
   grid-template-columns: 10% 80% 10%;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding:3rem 2rem;
   margin: 0 auto;
   @media ${device.laptop} {
     width: 95%;
@@ -25,7 +25,7 @@ export const Post = styled.div`
   @media ${device.mobileL} {
     display: flex;
     flex-direction: column;
-    height: 20rem;
+    height: 22rem;
     width: 90%;
     padding: 4rem;
     position: relative;
