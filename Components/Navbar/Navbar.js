@@ -47,7 +47,7 @@ const Navbar = ({ post }) => {
       </div>
 
       <span onClick={() => setNewPost(true)} className="nav__button">
-        <Button1 title="Add Feedback" />
+        <Button1 title="Add Post" />
       </span>
       <>
           {
