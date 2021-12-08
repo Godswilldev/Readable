@@ -14,7 +14,7 @@ export const Post = styled.div`
   grid-template-columns: 10% 80% 10%;
   align-items: center;
   justify-content: center;
-  padding:3rem 2rem;
+  padding: 3rem 2rem;
   margin: 0 auto;
   @media ${device.laptop} {
     width: 95%;
@@ -44,6 +44,7 @@ export const Post = styled.div`
 
       &--title {
         ${h3}
+        cursor: pointer;
       }
 
       &--category {
@@ -55,6 +56,7 @@ export const Post = styled.div`
 
       &--body {
         ${body1}
+        cursor: pointer;
         margin: 1rem 0;
         @media ${device.mobileL} {
           margin-bottom: 2rem;

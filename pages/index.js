@@ -64,14 +64,19 @@ const Index = styled.div`
     grid-template-columns: 1fr;
     padding: 0;
   }
+
+  .post {
+    @media ${device.mobileL} {
+      padding-bottom: 20rem;
+    }
+  }
 `;
 
 const Post = styled.div`
   margin: 2rem 0;
- 
-  @media ${device.mobileL} {
-        position:relative;
-        top:17rem;
-      }
 
+  @media ${device.mobileL} {
+    position: relative;
+    top: 17rem;
+  }
 `;

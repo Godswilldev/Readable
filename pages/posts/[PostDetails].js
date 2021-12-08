@@ -102,7 +102,7 @@ export const Details = styled.div`
   justify-content: center;
   margin: 5rem 0;
   @media ${device.mobileL} {
-    margin: 0;
+    margin-top: 2rem;
   }
   .details {
     width: 100%;
@@ -147,6 +147,9 @@ export const Details = styled.div`
       @media ${device.tablet} {
         width: 90%;
       }
+      /* @media ${device.mobileL} {
+        padding-bottom: 5rem;
+      } */
 
       h2 {
         ${h2}

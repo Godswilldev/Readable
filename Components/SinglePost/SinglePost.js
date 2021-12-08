@@ -26,7 +26,12 @@ const SinglePost = ({ post }) => {
           {post?.title}
         </p>
 
-        <p className="post__post--body">{post?.body}</p>
+        <p
+          onClick={() => router.push(`/posts/${post?.id}`)}
+          className="post__post--body"
+        >
+          {post?.body}
+        </p>
 
         <div className="post__post--category">
           <span>
