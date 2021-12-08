@@ -1,4 +1,4 @@
-import { GET_ALL_CATEGORIES } from "./../Actions/Categories";
+import { GET_ALL_CATEGORIES } from "../Types/ActionTypes";
 
 const initialState = {};
 

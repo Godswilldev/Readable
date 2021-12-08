@@ -1,10 +1,10 @@
 import {
   ADD_COMMENTS,
-  GET_COMMENTS,
   COMMENT_VOTE,
-  EDIT_COMMENT,
   DELETE_COMMENT,
-} from "../Actions/Comments";
+  EDIT_COMMENT,
+  GET_COMMENTS,
+} from "../Types/ActionTypes";
 
 const initialState = {};
 

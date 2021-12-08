@@ -6,7 +6,7 @@ import {
   GET_CATEGORY_POST,
   SORT_BY,
   VOTE,
-} from "./../Actions/Posts";  
+} from "../Types/ActionTypes.js";
 
 const initialState = {};
 
@@ -17,7 +17,7 @@ const postsReducer = (state = initialState, action) => {
         ...state,
         ...action.payload,
       };
-      
+
     case ADD_NEW_POST:
       return Object.values(state).concat(action.payload);
 
