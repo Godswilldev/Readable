@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { colors } from "./../../Utils/Theme";
+import { colors } from "../../Utils/Theme";
 import { body2, h2 } from "../../Utils/Typography";
-import { device } from "./../../Utils/MediaQueries";
+import { device } from "../../Utils/MediaQueries";
 
 export const Details = styled.div`
   display: flex;

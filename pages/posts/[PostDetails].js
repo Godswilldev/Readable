@@ -10,7 +10,7 @@ import SinglePost from "./../../Components/SinglePost/SinglePost";
 import SingleComment from "./../../Components/SingleComment/SingleComment";
 import Button1 from "../../Components/Buttons/Button1";
 import Button5 from "./../../Components/Buttons/Button5";
-import { Details } from "./PostDetailsStyles";
+import { Details } from "../../Components/SinglePost/PostDetailsStyles";
 
 const PostDetail = () => {
   const [params, setParams] = useState();

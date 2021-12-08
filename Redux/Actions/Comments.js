@@ -61,7 +61,7 @@ export const handleAddComment =
           id,
           timestamp,
           body,
-          author: author[Math.floor(Math.random() * author.length + 1)],
+          author: "Greg",
           parentId,
         },
       });
