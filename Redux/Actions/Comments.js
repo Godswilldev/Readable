@@ -146,7 +146,6 @@ export const handleDeleteComment =
         method: "DELETE",
         url: `/comments/${id}`,
       });
-      console.log(id, data);
       dispatch(deleteComment(data));
     } catch (error) {
       console.log(`error from handleDeleteComment ${error}`);
