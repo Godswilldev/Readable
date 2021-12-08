@@ -1,5 +1,5 @@
 import { axiosInstance } from "../../Utils/config";
-import { GET_ALL_CATEGORIES } from "./Categories";
+import { GET_ALL_CATEGORIES } from "./../Types/ActionTypes";
 
 // GET /categories
 // USAGE:
@@ -18,6 +18,6 @@ export const handleGetAllCategories = () => async (dispatch) => {
     });
     await dispatch(getCategories(data));
   } catch (error) {
-    console.log(`Error from handkleGetAllCategories ${error}`);
+    console.log(`Error from handleGetAllCategories ${error}`);
   }
 };
