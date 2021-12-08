@@ -1,6 +1,9 @@
 import { axiosInstance } from "../../Utils/config";
+import { GET_ALL_CATEGORIES } from "./Categories";
 
-export const GET_ALL_CATEGORIES = "GET_ALL_CATEGORIES";
+// GET /categories
+// USAGE:
+//   Get all of the categories available for the app. List is found in categories.js.
 
 const getCategories = (categories) => ({
   type: GET_ALL_CATEGORIES,

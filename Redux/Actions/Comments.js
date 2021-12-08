@@ -1,11 +1,16 @@
 import { axiosInstance } from "./../../Utils/config";
 import { v4 as uuidv4 } from "uuid";
+import {
+  ADD_COMMENTS,
+  COMMENT_VOTE,
+  DELETE_COMMENT,
+  EDIT_COMMENT,
+  GET_COMMENTS,
+} from "../Types/ActionTypes";
 
-export const GET_COMMENTS = "GET_COMMENTS";
-export const ADD_COMMENTS = "ADD_COMMENTS";
-export const COMMENT_VOTE = "COMMENT_VOTE";
-export const EDIT_COMMENT = "EDIT_COMMENT";
-export const DELETE_COMMENT = "DELETE_COMMENT";
+//  GET /comments/:id
+//       USAGE:
+//         Get the details for a single comment
 
 const getComments = (comments) => ({
   type: GET_COMMENTS,
@@ -25,6 +30,17 @@ export const handleGetComments =
       console.log(`Error from handleGetComments ${error}`);
     }
   };
+
+// POST /comments
+// USAGE:
+//   Add a comment to a post
+
+// PARAMS:
+//   id: Any unique ID. As with posts, UUID is probably the best here.
+//   timestamp: timestamp. Get this however you want.
+//   body: String
+//   author: String
+//   parentId: Should match a post id in the database.
 
 const addComment = (comment) => ({
   type: ADD_COMMENTS,
@@ -55,6 +71,12 @@ export const handleAddComment =
     }
   };
 
+//  POST /comments/:id
+//     USAGE:
+//       Used for voting on a comment.
+//     PARAMS:
+//       option - String: Either "upVote" or "downVote"
+
 const commentVote = (comment, option) => ({
   type: COMMENT_VOTE,
   comment,
@@ -78,6 +100,13 @@ export const handleCommentVote =
     }
   };
 
+//  PUT /comments/:id
+//     USAGE:
+//       Edit the details of an existing comment
+
+//     PARAMS:
+//       timestamp: timestamp. Get this however you want.
+//       body: String
 const editComment = (comment) => ({
   type: EDIT_COMMENT,
   payload: comment,
@@ -102,6 +131,9 @@ export const handleEditComment =
     }
   };
 
+//  DELETE /comments/:id
+//     USAGE:
+//       Sets a comment's deleted flag to 'true'
 const deleteComment = (comment) => ({
   type: DELETE_COMMENT,
   payload: comment,
